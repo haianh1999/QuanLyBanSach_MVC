@@ -1,0 +1,16 @@
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\Model.dll.config
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\Model.dll
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\Model.pdb
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\EntityFramework.dll
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\EntityFramework.xml
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Freelancer\Qly_BanSach_MVC\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+E:\Freelancer\Qly_BanSach_MVC\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\Freelancer\Qly_BanSach_MVC\Model\obj\Debug\Model.csproj.CopyComplete
+E:\Freelancer\Qly_BanSach_MVC\Model\obj\Debug\Model.dll
+E:\Freelancer\Qly_BanSach_MVC\Model\obj\Debug\Model.pdb
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\PagedList.dll
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\PagedList.Mvc.dll
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\PagedList.xml
+E:\Freelancer\Qly_BanSach_MVC\Model\bin\Debug\PagedList.Mvc.xml
