@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SachController.cs" />
     <Compile Include="Areas\Admin\Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2878,6 +2879,8 @@
     <Content Include="assets\client\js\slides.min.jquery.js" />
     <Content Include="assets\client\js\startstop-slider.js" />
     <Content Include="assets\client\template\neworder.html" />
+    <Content Include="assets\images\download.jfif" />
+    <Content Include="assets\images\sach-trinh-tham-kinh-di-cover-780x470.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -3095,6 +3098,10 @@
     <Content Include="Areas\Admin\Views\TheLoai\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TheLoai\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TheLoai\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sach\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sach\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sach\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sach\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3127,6 +3134,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Test\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

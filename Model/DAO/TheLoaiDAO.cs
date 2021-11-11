@@ -25,6 +25,16 @@ namespace Model.DAO
             return model.OrderByDescending(x => x.MaTL).ToPagedList(page, pageSize);
         }
 
+        // hàm trả tất cả dữ liệu thể loại theo dạng list
+        public List<TheLoai> GetAll()
+        {
+            return db_.TheLoais.ToList();
+        }
+        // hàm trả tất cả dữ liệu thể loại theo dạng list
+        public List<TheLoai> GetAllInfo()
+        {
+            return db_.TheLoais.ToList();
+        }
         // hàm trả về thông tin thể loại theo mã thể loại
         public TheLoai GetById(string MaTL)
         {
