@@ -122,5 +122,19 @@ namespace Model.DAO
             }
             return true;
         }
+
+
+
+
+        /// <summary>
+        /// Client DAO
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public List<Sach> ListNewBook(int top)
+        {
+            return db_.Saches.OrderByDescending(x => x.NgayThem).Take(top).ToList();
+
+        }
     }
 }
