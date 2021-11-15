@@ -66,6 +66,7 @@
     <Compile Include="DAO\PhieuXuatDAO.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="DAO\TheLoaiDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EF\CTPhieuXuat.cs" />
     <Compile Include="EF\PhieuXuat.cs" />
     <Compile Include="EF\QlBanSachDbcontext.cs" />

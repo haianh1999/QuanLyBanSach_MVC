@@ -1,0 +1,105 @@
+﻿@model PagedList.IPagedList<Model.EF.User>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Quản lý tài khoản khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header {
+    Danh sách khách hàng
+}
+
+@section JsFooter {
+    @*<script src="~/assets/admin/js/controller/userController.js"></script>*@
+    <script src="~/assets/admin/js/controller/idCount.js"></script>
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Danh sách khách hàng</h6>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Index", "User", FormMethod.Get))
+                {
+                    <div class="row form-group">
+                        <div class="col-lg-12">
+                            <div class="col-md-4 input-search">
+                                <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" />
+                            </div>
+                            <div class="col-md-4 btn-search">
+                                <button type="submit" class="btn btn-success"> Tìm kiếm</button>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+
+                            <th>STT</th>
+                            <th>Tài khoản</th>
+                            <th>Họ tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Địa chỉ</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày tạo</th>
+
+                            <th>#</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tài khoản</th>
+                            <th>Họ tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Địa chỉ</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày tạo</th>
+
+                            <th>#</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.UserName">
+
+                                <td class="td-id"><p class="p-text-id"></p></td>
+                                <td>@item.UserName</td>
+                                <td>@item.HoTen</td>
+                                <td>@(item.NgaySinh.HasValue?item.NgaySinh.Value.ToString("MM/dd/yyyy") : "")</td>
+                                <td>@item.DiaChi</td>
+                                <td>@item.SDT</td>
+                                <td>@(item.NgayTao.HasValue?item.NgayTao.Value.ToString("MM/dd/yyyy") : "")</td>
+
+                                <td>
+                                    @Html.ActionLink("Sửa", "Edit", new { UserName = item.UserName }, new { @class = "btn btn-warning" })
+                                    @*<a class="btn btn-warning" href="/Admin/TheLoai/Edit/@item.MaTL">
+                                            Sửa
+                                        </a>*@
+
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+

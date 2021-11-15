@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Qly_BanSach_MVC.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,17 @@ namespace Qly_BanSach_MVC.Areas.Admin.Controllers
 {
     public class BaseController : Controller
     {
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var session = (UserLogin)Session[Common.CommonConstants.USER_SESSION];
+            // Nếu session null
+            if (session == null)
+            {
+                filterContext.Result = new RedirectToRouteResult(new
+                    System.Web.Routing.RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin" }));
+            }
+            //base.OnActionExecuting(filterContext);
+        }
         // Set thông báo
         protected void SetAlert(string message, string type)
         {

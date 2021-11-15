@@ -12,4 +12,5 @@ namespace Qly_BanSach_MVC.Common
         public string UserName { get; set; }
 
     }
+
 }
