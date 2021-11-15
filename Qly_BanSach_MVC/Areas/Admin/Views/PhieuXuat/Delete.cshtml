@@ -1,0 +1,53 @@
+﻿@model Model.EF.PhieuXuat
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Thông tin phiếu xuất</h4>
+    <hr />
+    <form class="form">
+        <dl class="dl-horizontal">
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.MaPX)
+                <label>:</label>
+                @Html.DisplayFor(model => model.MaPX)
+            </dt>
+         
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.NgayTao)
+                <label>:</label>
+                @Html.DisplayFor(model => model.NgayTao)
+            </dt>
+
+
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.TongTien)
+                <label>:</label>
+                @{
+                    var tongtien = 0;
+                    foreach (var items in Model.CTPhieuXuats.Where(x => x.MaPX == Model.MaPX))
+                    {
+                        tongtien = (int)(tongtien + items.DonGia);
+                    }
+                }
+                @tongtien
+            </dt>
+
+       
+
+        </dl>
+    </form>
+    
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" onclick="return confirm('Mã phiếu @Model.MaPX có @Model.CTPhieuXuats.Count sản phẩm . Bạn có chắc chắn muốn xóa không?')" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

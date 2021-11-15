@@ -1,4 +1,4 @@
-﻿namespace Model.EF
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -17,15 +17,11 @@
 
         [Key]
         [StringLength(10)]
-        [Display(Name ="Mã thể loại")]
         public string MaTL { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Tên thể loại")]
-        [Required(ErrorMessage ="Bạn chưa nhập tên thể loại sách")]
         public string TenTL { get; set; }
 
-        [Display(Name = "Ghi chú")]
         public string GhiChu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

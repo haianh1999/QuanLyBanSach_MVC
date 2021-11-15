@@ -9,19 +9,19 @@ namespace Model.EF
     [Table("CTPhieuXuat")]
     public partial class CTPhieuXuat
     {
-        [Key]
-        [Column(Order = 0)]
+        [Required]
         [StringLength(10)]
         public string MaPX { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         [StringLength(10)]
         public string MaSach { get; set; }
 
         public int? SoLuong { get; set; }
 
         public decimal? DonGia { get; set; }
+
+        public long ID { get; set; }
 
         public virtual PhieuXuat PhieuXuat { get; set; }
 

@@ -108,7 +108,6 @@
                 <h6 class="collapse-header">Custom Components:</h6>
                 <a class="collapse-item" href="@Url.Action("Index","TheLoai")">Quản lý thể loại</a>
                 <a class="collapse-item" href="@Url.Action("Index","Sach")">Quản lý sách</a>
-                <a class="collapse-item" href="@Url.Action("Index","NhanVien")">Quản lý nhân viên</a>
                 <a class="collapse-item" href="@Url.Action("Index","KhachHang")">Quản lý khách hàng</a>
                 <a class="collapse-item" href="@Url.Action("Index","TaiKhoan")">Quản lý tài khoản</a>
             </div>
@@ -118,13 +117,12 @@
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
            aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Quản lý danh mục</span>
+            <span>Quản lý đơn hàng</span>
         </a>
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/Admin/Product/Index">Quản lý nhập hàng</a>
-                <a class="collapse-item" href="register.html">Quản lý xuất hàng</a>
+                <a class="collapse-item" href="@Url.Action("Index","PhieuXuat")">Quản lý xuất hàng</a>
          
             </div>
         </div>

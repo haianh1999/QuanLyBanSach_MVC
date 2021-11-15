@@ -9,13 +9,13 @@ namespace Model.EF
     [Table("User")]
     public partial class User
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            PhieuXuats = new HashSet<PhieuXuat>();
+        }
 
         [Key]
-        [Column(Order = 1)]
         [StringLength(50)]
         public string UserName { get; set; }
 
@@ -38,5 +38,8 @@ namespace Model.EF
         public DateTime? NgayTao { get; set; }
 
         public int? PhanQuyen { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhieuXuat> PhieuXuats { get; set; }
     }
 }

@@ -19,8 +19,8 @@ namespace Model.EF
         [StringLength(10)]
         public string MaPX { get; set; }
 
-        [StringLength(10)]
-        public string MaKH { get; set; }
+        [StringLength(50)]
+        public string UserName { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? NgayTao { get; set; }
@@ -30,6 +30,6 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPhieuXuat> CTPhieuXuats { get; set; }
 
-        public virtual KhachHang KhachHang { get; set; }
+        public virtual User User { get; set; }
     }
 }

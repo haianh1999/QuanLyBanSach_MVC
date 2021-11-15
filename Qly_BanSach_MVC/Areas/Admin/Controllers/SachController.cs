@@ -50,15 +50,15 @@ namespace Qly_BanSach_MVC.Areas.Admin.Controllers
             {
                 ViewBag.Message = "You have not specified a file.";
             }
-            return View("Index","Home");
+            return View("Index", "Home");
         }
         // tạo hàm  lưu bản ghi vào database
         [HttpPost]
-        public ActionResult Create(HttpPostedFileBase file ,Sach sach)
+        public ActionResult Create(HttpPostedFileBase file, Sach sach)
         {
             try
             {
-               
+
 
                 var dao = new SachDAO();
 
@@ -125,24 +125,39 @@ namespace Qly_BanSach_MVC.Areas.Admin.Controllers
                 var check = dao.GetById(sach.MaSach);
                 if (check != null)
                 {
-                    // tạo biến file name lấy tên file đã chọn
-                    string filename = Path.GetFileName(fileEdit.FileName);
-                    // tạo biến mới _filename
-                    string _filename = DateTime.Now.ToString("yymmssfff") + filename;
-                    // lấy đuôi của file
-                    string extension = Path.GetExtension(fileEdit.FileName);
-                    // tạo ra đường dẫn hình ảnh mới vào thư mục assets/images
-                    string path = Path.Combine(Server.MapPath("~/assets/images/"), _filename);
-                    // lưu đường dẫn vào trong database
-                    sach.HinhAnh = "~/assets/images/" + _filename;
-                    // lưu hình ảnh vào thư mục assets/images
-                    fileEdit.SaveAs(path);
-                    var res = dao.Edit(sach);
-                    if (res == true)
+                
+                   
+                    if (fileEdit == null)
                     {
-                        SetAlert("Sửa sách thành công", "success");
-                        RedirectToAction("Index", "Sach");
+                        var res = dao.Edit(sach);
+                        if (res == true)
+                        {
+                            SetAlert("Sửa sách thành công", "success");
+                            RedirectToAction("Index", "Sach");
+                        }
                     }
+                    else
+                    {
+                        // tạo biến file name lấy tên file đã chọn
+                        string filename = Path.GetFileName(fileEdit.FileName);
+                        // tạo biến mới _filename
+                        string _filename = DateTime.Now.ToString("yymmssfff") + filename;
+                        // lấy đuôi của file
+                        string extension = Path.GetExtension(fileEdit.FileName);
+                        // tạo ra đường dẫn hình ảnh mới vào thư mục assets/images
+                        string path = Path.Combine(Server.MapPath("~/assets/images/"), _filename);
+                        // lưu đường dẫn vào trong database
+                        sach.HinhAnh = "~/assets/images/" + _filename;
+                        // lưu hình ảnh vào thư mục assets/images
+                        fileEdit.SaveAs(path);
+                        var res = dao.Edit(sach);
+                        if (res == true)
+                        {
+                            SetAlert("Sửa sách thành công", "success");
+                            RedirectToAction("Index", "Sach");
+                        }
+                    }
+
 
                 }
 

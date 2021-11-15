@@ -62,13 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\BaseDAO.cs" />
+    <Compile Include="DAO\CTPhieuXuatDAO.cs" />
+    <Compile Include="DAO\PhieuXuatDAO.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="DAO\TheLoaiDAO.cs" />
-    <Compile Include="EF\CTPhieuNhap.cs" />
     <Compile Include="EF\CTPhieuXuat.cs" />
-    <Compile Include="EF\KhachHang.cs" />
-    <Compile Include="EF\NhanVien.cs" />
-    <Compile Include="EF\PhieuNhap.cs" />
     <Compile Include="EF\PhieuXuat.cs" />
     <Compile Include="EF\QlBanSachDbcontext.cs" />
     <Compile Include="EF\Sach.cs" />
@@ -84,6 +82,7 @@
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

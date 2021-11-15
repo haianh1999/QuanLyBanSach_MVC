@@ -10,5 +10,7 @@ namespace Qly_BanSach_MVC.Common
         // Kiểm tra sesssion đăng nhập
         public static string USER_SESSION = "USER_SESSION";
         public static string CartSession = "CartSession";
+        public static string MaPXSession = "MaPXSession";
+
     }
 }
