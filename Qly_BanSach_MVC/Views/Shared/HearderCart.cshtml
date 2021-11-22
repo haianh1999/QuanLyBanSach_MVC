@@ -1,0 +1,10 @@
+﻿@model List<Qly_BanSach_MVC.Models.CartItem>
+<script src="~/assets/client/controllers/cartController.js"></script>
+<p>
+    Chào mừng đến với website <span>Giỏ hàng:</span><div id="dd" class="wrapper-dropdown-2">
+        <a href="/gio-hang"> @Model.Count sản phầm -</a>
+        <ul class="dropdown">
+            <li>you have @Model.Count Shopping cart</li>
+        </ul>
+    </div>
+</p>

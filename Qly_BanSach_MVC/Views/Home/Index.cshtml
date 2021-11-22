@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var NewBooks = (List<Model.EF.Sach>)ViewBag.NewBooks;
+}
+@section categories
+{
+    <div class="header_bottom_left">
+        <div class="categories">
+            <ul>
+                @{Html.RenderAction("TheLoaiCategories", "TheLoai");}
+            </ul>
+        </div>
+    </div>
+    <div class="header_bottom_right">
+        <div class="slider">
+            <div id="slider">
+                <div id="mover">
+                    <div id="slide-1" class="slide">
+                        <div class="slider-img">
+                            <a href="#"><img src="~/assets/images/slide1.jpg" alt="learn more" /></a>
+                        </div>
+                        <div class="slider-text">
+                            <h1>Xả kho<br><span>Giảm giá</span></h1>
+                            <h2>Lên tới 20 %</h2>
+                            <div class="features_list">
+                                <h4>Tìm hiểu thêm</h4>
+                            </div>
+                            <a href="#" class="button">Mua ngay</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slider-text">
+                            <h1>Xả kho<br><span>Giảm giá</span></h1>
+                            <h2>Lên tới 40%</h2>
+                            <div class="features_list">
+                                <h4>Tìm hiểu thêm</h4>
+                            </div>
+                            <a href="#" class="button">Mua ngay</a>
+                        </div>
+                        <div class="slider-img">
+                            <a href="#"><img src="~/assets/images/slide2.jfif" alt="learn more" /></a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slider-img">
+                            <a href="#"><img src="~/assets/images/slide3.jpg" alt="learn more" /></a>
+                        </div>
+                        <div class="slider-text">
+                            <h1>Xả kho<br><span>Giảm giá</span></h1>
+                            <h2>Lên tới 10%</h2>
+                            <div class="features_list">
+                                <h4>Tìm hiểu thêm</h4>
+                            </div>
+                            <a href="#" class="button">Mua ngay</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Sản phẩm mới</h3>
+        </div>
+        <div class="see">
+            <p><a href="#">Xem tất cả sản phẩm</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in NewBooks)
+        {
+            var url = "/chi-tiet/" + item.TenSach + "-" + item.MaSach;
+            var imgurl = item.HinhAnh.Substring(1);
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img style="height:300px" src="@imgurl" alt="@item.TenSach" /></a>
+                <h2>@item.TenSach </h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.GiaThanh.HasValue ? item.GiaThanh.Value.ToString("N0"): "Liên hệ") VNĐ</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-gio-hang?MaSach=@item.MaSach&quantity=1">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+    
+</div>
+

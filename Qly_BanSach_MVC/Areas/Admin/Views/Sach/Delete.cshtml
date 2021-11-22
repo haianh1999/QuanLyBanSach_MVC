@@ -1,0 +1,66 @@
+﻿@model Model.EF.Sach
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>Thông tin sach</h4>
+    <hr />
+    <form class="form">
+        <dl class="dl-horizontal form-group">
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.TheLoai.TenTL)
+                <label> : </label>
+                @Html.DisplayFor(model => model.TheLoai.TenTL)
+            </dt>
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.TenSach)
+                <label> : </label>
+                @Html.DisplayFor(model => model.TenSach)
+            </dt>
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.Mieu_ta)
+                <label> : </label>
+                @Html.DisplayFor(model => model.Mieu_ta)
+            </dt>
+
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.HinhAnh)
+                <label> : </label>
+                @Html.DisplayFor(model => model.HinhAnh)
+            </dt>
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.GiaThanh)
+                <label> : </label>
+                @Html.DisplayFor(model => model.GiaThanh)
+            </dt>
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.NgayThem)
+                <label> : </label>
+                @Html.DisplayFor(model => model.NgayThem)
+            </dt>
+            <dt class="form-control">
+                @Html.DisplayNameFor(model => model.LuotXem)
+                <label> : </label>
+                @Html.DisplayFor(model => model.LuotXem)
+            </dt>
+
+        </dl>
+
+    </form>
+
+    
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa sách @Model.TenSach không?')" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

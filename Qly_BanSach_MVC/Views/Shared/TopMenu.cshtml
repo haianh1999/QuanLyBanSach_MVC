@@ -1,0 +1,28 @@
+﻿<div class="call">
+   
+</div>
+<div class="account_desc">
+    @{
+        var session = (Qly_BanSach_MVC.Common.UserLogin)Session[Qly_BanSach_MVC.Common.CommonConstants.USER_SESSION];
+    }
+    @if (session == null)
+    {
+        <ul>
+
+            <li><a href="@Url.Action("DangKy","User")" target="_self">Đăng ký</a></li>
+            <li><a href="@Url.Action("Login","User")" target="_self">Đăng nhập</a></li>
+
+
+        </ul>
+    }
+    else
+    {
+        <ul>
+            <li>Xin chào @session.Hoten</li>
+            <li>@Html.ActionLink("Thoát", "Logout", "User")</li>
+        </ul>
+    }
+
+</div>
+<div class="clear"></div>
+

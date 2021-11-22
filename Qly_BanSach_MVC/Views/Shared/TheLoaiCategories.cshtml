@@ -1,0 +1,13 @@
+﻿@model List<Model.EF.TheLoai>
+<ul>
+    <h3>Danh mục thể loại</h3>
+    @foreach (var item in Model)
+    {
+        <li class="dropdown">
+            <a href="/san-pham/@item.TenTL-@item.MaTL">@item.TenTL</a>
+        </li>
+    }
+
+</ul>
+
+

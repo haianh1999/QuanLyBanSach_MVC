@@ -1,0 +1,61 @@
+﻿@model List<Qly_BanSach_MVC.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter {
+    <script src="~/assets/client/controllers/cartController.js"></script>
+}
+<div class="content">
+
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã sản phẩm</td>
+                        <td>Tên sản phẩm</td>
+                        <td>Ảnh sp</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Sach.MaSach</td>
+                            <td>@item.Sach.TenSach</td>
+                            <td><img src="@item.Sach.HinhAnh.Substring(1)" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Sach.MaSach" value="@item.quantity" /></td>
+                            <td>@item.Sach.GiaThanh.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.Sach.GiaThanh.GetValueOrDefault(0) * item.quantity).ToString("N0"))</td>
+                            <td><a href="#" data-id="@item.Sach.MaSach" class="btn-delete">Xóa</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn">Xóa mua hàng</button>
+            using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+            {
+                <button type="submit" class="btn btn-primary">Thanh toán</button>
+
+            }
+
+
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phầm nào trong giỏ hàng</span>
+        }
+    </div>
+</div>
+
+
